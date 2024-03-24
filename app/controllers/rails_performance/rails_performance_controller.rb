@@ -38,6 +38,18 @@ module RailsPerformance
         end
       end
 
+      def duplicate_queries
+        @record = RailsPerformance::Models::RequestRecord.find_by(request_id: params[:id])
+        @data   = RailsPerformance::Reports::TraceReport.new(request_id: params[:id]).data
+                                                                                     .select { |v| v['group'] == 'db' }
+                                                                                     .group_by { |v| v['sql'] }
+
+        respond_to do |format|
+          format.js {}
+          format.any { render plain: "Doesn't open in new window. Wait until full page load." }
+        end
+      end
+
       def crashes
         @datasource   = RailsPerformance::DataSource.new(**prepare_query({status_eq: 500}), type: :requests)
         db            = @datasource.db

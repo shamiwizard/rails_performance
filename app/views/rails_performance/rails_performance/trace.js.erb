@@ -1,5 +1,5 @@
 <% if @record %>
-  window.panel.header.html(window.panel.close + "<%= j report_name(@record.record_hash) %>");
+  window.panel.header.html(window.panel.close + "<%= j report_name(@record.record_hash) %>" + "<%= j link_to 'Dublicated queries', rails_performance.rails_performance_duplicate_queries_path(params[:id]), class: 'button is-link', remote: true %>");
 <% else %>
   window.panel.header.html(window.panel.close);
 <% end %>

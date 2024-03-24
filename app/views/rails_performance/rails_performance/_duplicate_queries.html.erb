@@ -1,0 +1,20 @@
+<table class="table is-fullwidth is-hoverable is-narrow is-bordered is-size-7">
+  <tbody>
+    <% @data.each do |query, values| %>
+      <tr>
+          <td class="nowrap has-text-right">
+            <%= values.size %>
+          </td>
+          <td>
+            <%= query %>
+          </td>
+      </tr>
+    <% end %>
+
+    <% if @data.empty? %>
+      <tr>
+        <td>Nothing to show here. Perphaps details about the requests already expired. Setting "slow_requests_time_window" should be equal to "duration".</td>
+      </td>
+    <% end %>
+  </tbody>
+</table>

@@ -7,6 +7,7 @@ RailsPerformance::Engine.routes.draw do
   get '/slow'      => 'rails_performance#slow', as: :rails_performance_slow
 
   get '/trace/:id'  => 'rails_performance#trace', as: :rails_performance_trace
+  get '/duplicate_queries/:id'  => 'rails_performance#duplicate_queries', as: :rails_performance_duplicate_queries
   get '/summary'    => 'rails_performance#summary', as: :rails_performance_summary
 
   get '/sidekiq'    => 'rails_performance#sidekiq', as: :rails_performance_sidekiq
