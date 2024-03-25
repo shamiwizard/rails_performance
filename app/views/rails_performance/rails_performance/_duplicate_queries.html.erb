@@ -1,4 +1,10 @@
-<table class="table is-fullwidth is-hoverable is-narrow is-bordered is-size-7">
+<table class="table is-fullwidth is-hoverable is-narrow is-size-7">
+  <thead>
+    <tr>
+      <th data-sort="int">Span</th>
+      <th data-sort="string">Query</th>
+    </tr>
+  </thead>
   <tbody>
     <% @data.each do |query, values| %>
       <tr>
